@@ -6,12 +6,9 @@ import HomeNavigation from "./navigations/HomeNavigation";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <NavigationContainer>
-        <HomeNavigation />
-      </NavigationContainer>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <HomeNavigation />
+    </NavigationContainer>
   );
 }
 
