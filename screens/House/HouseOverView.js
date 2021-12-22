@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Button, FlatList, Text, TouchableOpacity, View } from "react-native";
-import Data from "../DataFile";
-import mainStyles from "../styles/main";
+import Data from "../../DataFile";
+import mainStyles from "../../styles/main";
 
-export class Homepage extends Component {
+export class HouseOverview extends Component {
   render() {
     const renderData = (itemData) => {
       return (
@@ -14,7 +14,7 @@ export class Homepage extends Component {
           }}
         >
           <View>
-            <Text>{itemData.item.name}</Text>
+            <Text>{itemData.item.title}</Text>
           </View>
         </TouchableOpacity>
       );
@@ -23,4 +23,4 @@ export class Homepage extends Component {
   }
 }
 
-export default Homepage;
+export default HouseOverview;

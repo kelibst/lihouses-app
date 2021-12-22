@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Homepage from "../screens/Homepage";
+import HouseOverView from "../screens/House/HouseOverView";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import House from "../screens/House";
+import HouseDetails from "../screens/House/HouseDetails";
 
 const Tab = createBottomTabNavigator();
 const HomeNavigation = () => {
@@ -25,8 +25,8 @@ const HomeNavigation = () => {
         tabBarInactiveTintColor: "gray",
       })}
     >
-      <Tab.Screen name="Home" component={Homepage} />
-      <Tab.Screen name="House" component={House} />
+      <Tab.Screen name="Home" component={HouseOverView} />
+      <Tab.Screen name="House" component={HouseDetails} />
     </Tab.Navigator>
   );
 };

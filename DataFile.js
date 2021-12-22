@@ -1,15 +1,76 @@
+import House from "./models/house";
 const Data = [
-  { id: 1, name: "kelibooster", phone: "201224554887" },
-  { id: 2, name: "Kelvin Klein", phone: "201224554887" },
-  { id: 3, name: "Ama diatuo", phone: "201224554887" },
-  { id: 4, name: "Hellen dia", phone: "201224554887" },
-  { id: 5, name: "patricia Klu", phone: "201224554887" },
-
-  { id: 6, name: "Moses Jidu", phone: "201224554887" },
-  { id: 7, name: "Jidu Hola", phone: "201224554887" },
-
-  { id: 8, name: "Talin Kpeme", phone: "201224554887" },
-
-  { id: 9, name: "Near Ima", phone: "201224554887" },
+  new House(
+    1,
+    "Chemmber and Hall",
+    "http://res.cloudinary.com/kelibst/image/upload/v1608203886/xnscutts7azjiqjufn1h.jpg",
+    250
+  ),
+  new House(
+    2,
+    "Chemmber and Hall self contain",
+    "http://res.cloudinary.com/kelibst/image/upload/v1608203886/xnscutts7azjiqjufn1h.jpg",
+    250
+  ),
+  new House(
+    3,
+    "Chemmber and Hall with porch",
+    "http://res.cloudinary.com/kelibst/image/upload/v1608203886/xnscutts7azjiqjufn1h.jpg",
+    250
+  ),
+  new House(
+    4,
+    "Single Room",
+    "http://res.cloudinary.com/kelibst/image/upload/v1608203886/xnscutts7azjiqjufn1h.jpg",
+    250
+  ),
+  new House(
+    5,
+    "Chemmber and Hall",
+    "http://res.cloudinary.com/kelibst/image/upload/v1608203886/xnscutts7azjiqjufn1h.jpg",
+    250
+  ),
+  new House(
+    6,
+    "Chemmber and Hall with porch",
+    "http://res.cloudinary.com/kelibst/image/upload/v1608203886/xnscutts7azjiqjufn1h.jpg",
+    250
+  ),
+  new House(
+    7,
+    "Chemmber and Hall",
+    "http://res.cloudinary.com/kelibst/image/upload/v1608203886/xnscutts7azjiqjufn1h.jpg",
+    250
+  ),
+  new House(
+    8,
+    "Chemmber and Hall with porch",
+    "http://res.cloudinary.com/kelibst/image/upload/v1608203886/xnscutts7azjiqjufn1h.jpg",
+    250
+  ),
+  new House(
+    9,
+    "Single Room",
+    "http://res.cloudinary.com/kelibst/image/upload/v1608203886/xnscutts7azjiqjufn1h.jpg",
+    250
+  ),
+  new House(
+    10,
+    "Chemmber and Hall",
+    "http://res.cloudinary.com/kelibst/image/upload/v1608203886/xnscutts7azjiqjufn1h.jpg",
+    250
+  ),
+  new House(
+    11,
+    "Chemmber and Hall self contain",
+    "http://res.cloudinary.com/kelibst/image/upload/v1608203886/xnscutts7azjiqjufn1h.jpg",
+    250
+  ),
+  new House(
+    12,
+    "Chemmber and Hall",
+    "http://res.cloudinary.com/kelibst/image/upload/v1608203886/xnscutts7azjiqjufn1h.jpg",
+    250
+  ),
 ];
 export default Data;
