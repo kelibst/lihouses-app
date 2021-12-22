@@ -13,11 +13,9 @@ const HomeNavigation = () => {
           let iconName;
 
           if (route.name === "Home") {
-            iconName = focused
-              ? "ios-information-circle"
-              : "ios-information-circle-outline";
+            iconName = focused ? "ios-home" : "ios-home";
           } else if (route.name === "House") {
-            iconName = focused ? "ios-home" : "ios-list";
+            iconName = focused ? "ios-home" : "ios-home";
           }
 
           // You can return any component that you like here!

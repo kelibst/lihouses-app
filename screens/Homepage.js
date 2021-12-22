@@ -1,13 +1,17 @@
 import React, { Component } from "react";
-import { Text, View } from "react-native";
-
+import { Button, FlatList, Text, View } from "react-native";
+import Data from "../DataFile";
+import mainStyles from "../styles/main";
+const renderData = (itemData) => {
+  return (
+    <View style={mainStyles.gridItem}>
+      <Text>{itemData.item.name}</Text>
+    </View>
+  );
+};
 export class Homepage extends Component {
   render() {
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text> This is the homepage component </Text>
-      </View>
-    );
+    return <FlatList data={Data} numColumns={2} renderItem={renderData} />;
   }
 }
 
