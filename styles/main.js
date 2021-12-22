@@ -11,6 +11,7 @@ const mainStyles = StyleSheet.create({
     flex: 1,
     margin: 15,
     height: 150,
+    backgroundColor: "green",
   },
 });
 export default mainStyles;
