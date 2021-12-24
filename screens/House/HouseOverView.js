@@ -1,7 +1,14 @@
 import React, { Component } from "react";
-import { Button, FlatList, Text, TouchableOpacity, View } from "react-native";
+import {
+  Button,
+  FlatList,
+  Image,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { connect } from "react-redux";
-import Data from "../../DataFile";
+import cardStyles from "../../styles/cards";
 import mainStyles from "../../styles/main";
 
 export class HouseOverview extends Component {
@@ -9,13 +16,18 @@ export class HouseOverview extends Component {
     const renderData = (itemData) => {
       return (
         <TouchableOpacity
-          style={mainStyles.gridItem}
+          style={[mainStyles?.gridItem, cardStyles.homeCard]}
           onPress={() => {
             this.props.navigation.navigate("House");
           }}
         >
           <View>
-            <Text>{itemData.item.title}</Text>
+            <Image
+              style={cardStyles.image}
+              source={{ uri: itemData.item.product_img }}
+            />
+            <Text style={cardStyles.title}>{itemData.item.title}</Text>
+            <Text style={cardStyles.price}>{itemData.item.price}</Text>
           </View>
         </TouchableOpacity>
       );

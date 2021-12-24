@@ -17,15 +17,19 @@ const HomeNavigation = () => {
           } else if (route.name === "House") {
             iconName = focused ? "ios-home" : "ios-home";
           }
-
-          // You can return any component that you like here!
           return <Ionicons name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: "tomato",
         tabBarInactiveTintColor: "gray",
       })}
     >
-      <Tab.Screen name="Home" component={HouseOverView} />
+      <Tab.Screen
+        name="Home"
+        component={HouseOverView}
+        options={{
+          title: "Li Houses",
+        }}
+      />
       <Tab.Screen name="House" component={HouseDetails} />
     </Tab.Navigator>
   );
