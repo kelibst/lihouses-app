@@ -6,6 +6,8 @@ import React from "react";
 
 import HomeNavigation from "./navigations/HomeNavigation";
 
+import houseReducer from "./store/reducers/houses";
+
 const rootReducer = combineReducers({
   Houses: houseReducer,
 });

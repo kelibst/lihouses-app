@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, FlatList, Text, TouchableOpacity, View } from "react-native";
+import { connect } from "react-redux";
 import Data from "../../DataFile";
 import mainStyles from "../../styles/main";
 
@@ -19,8 +20,18 @@ export class HouseOverview extends Component {
         </TouchableOpacity>
       );
     };
-    return <FlatList data={Data} numColumns={2} renderItem={renderData} />;
+    return (
+      <FlatList
+        data={this?.props?.availableHouses}
+        numColumns={2}
+        renderItem={renderData}
+      />
+    );
   }
 }
 
-export default HouseOverview;
+const mapStateToProps = (state) => ({
+  availableHouses: state?.Houses?.availableHouses,
+});
+
+export default connect(mapStateToProps, {})(HouseOverview);
