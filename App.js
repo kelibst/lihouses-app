@@ -7,6 +7,8 @@ import React from "react";
 import HomeNavigation from "./navigations/HomeNavigation";
 
 import houseReducer from "./store/reducers/houses";
+import StackNavigation from "./navigations/StackNavigation";
+import { HouseOverview } from "./screens/House/HouseOverView";
 
 const rootReducer = combineReducers({
   Houses: houseReducer,
@@ -16,11 +18,11 @@ const store = createStore(rootReducer);
 
 export default function App() {
   return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <HomeNavigation />
+    <NavigationContainer>
+      <Provider store={store}>
+        <StackNavigation />
         <StatusBar />
-      </NavigationContainer>
-    </Provider>
+      </Provider>
+    </NavigationContainer>
   );
 }

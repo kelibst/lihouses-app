@@ -22,7 +22,7 @@ export class HouseOverview extends Component {
             cardStyles.shadows,
           ]}
           onPress={() => {
-            this.props.navigation.navigate("House");
+            this.props.navigation.navigate("HouseDetails");
           }}
         >
           <View>

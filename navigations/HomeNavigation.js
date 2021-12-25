@@ -28,10 +28,7 @@ const HomeNavigation = () => {
       <Tab.Screen
         name="Home"
         component={HouseOverView}
-        options={{
-          title: "Li Houses",
-          headerTintColor: Color.primary,
-        }}
+        options={{ headerShown: false }}
       />
       <Tab.Screen
         name="favorites"
