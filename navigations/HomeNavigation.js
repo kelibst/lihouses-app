@@ -5,6 +5,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import HouseDetails from "../screens/House/HouseDetails";
 import Color from "../constants/Color";
 import FavoriteList from "../screens/House/FavoriteList";
+import StackNavigation from "./StackNavigation";
 
 const Tab = createBottomTabNavigator();
 const HomeNavigation = () => {
@@ -27,7 +28,7 @@ const HomeNavigation = () => {
     >
       <Tab.Screen
         name="Home"
-        component={HouseOverView}
+        component={StackNavigation}
         options={{ headerShown: false }}
       />
       <Tab.Screen
