@@ -24,20 +24,29 @@ const cardStyles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    minHeight: 150,
-    padding: 10,
+    height: "100%",
+  },
+  imgContainer: {
+    height: 150,
+    width: "100%",
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    overflow: "hidden",
   },
   title: {
-    fontSize: 16,
-    color: "black",
-    fontWeight: "900",
+    fontSize: 14,
+    fontFamily: "sans-serif",
+    color: "grey",
+    fontWeight: "bold",
   },
   actions: {
     margin: 10,
   },
   price: {
-    fontWeight: "900",
-    fontSize: 14,
+    fontWeight: "bold",
+    fontSize: 18,
+    color: "black",
+    marginTop: 10,
   },
 });
 

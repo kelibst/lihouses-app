@@ -26,10 +26,12 @@ export class HouseOverview extends Component {
           }}
         >
           <View>
-            <Image
-              style={cardStyles.image}
-              source={{ uri: itemData.item.product_img }}
-            />
+            <View style={cardStyles.imgContainer}>
+              <Image
+                style={cardStyles.image}
+                source={{ uri: itemData.item.product_img }}
+              />
+            </View>
             <View style={cardStyles.actions}>
               <Text style={cardStyles.title}>{itemData.item.title}</Text>
               <Text style={cardStyles.price}>{itemData.item.price}</Text>

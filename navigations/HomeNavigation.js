@@ -3,6 +3,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HouseOverView from "../screens/House/HouseOverView";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import HouseDetails from "../screens/House/HouseDetails";
+import Color from "../constants/Color";
+import FavoriteList from "../screens/House/FavoriteList";
 
 const Tab = createBottomTabNavigator();
 const HomeNavigation = () => {
@@ -14,8 +16,8 @@ const HomeNavigation = () => {
 
           if (route.name === "Home") {
             iconName = focused ? "ios-home" : "ios-home";
-          } else if (route.name === "House") {
-            iconName = focused ? "ios-home" : "ios-home";
+          } else if (route.name === "favorites") {
+            iconName = focused ? "bookmarks" : "bookmarks-outline";
           }
           return <Ionicons name={iconName} size={size} color={color} />;
         },
@@ -28,9 +30,17 @@ const HomeNavigation = () => {
         component={HouseOverView}
         options={{
           title: "Li Houses",
+          headerTintColor: Color.primary,
         }}
       />
-      <Tab.Screen name="House" component={HouseDetails} />
+      <Tab.Screen
+        name="favorites"
+        component={FavoriteList}
+        options={{
+          title: "Favorites",
+          headerTintColor: Color.primary,
+        }}
+      />
     </Tab.Navigator>
   );
 };
