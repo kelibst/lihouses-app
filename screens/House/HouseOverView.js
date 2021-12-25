@@ -16,7 +16,11 @@ export class HouseOverview extends Component {
     const renderData = (itemData) => {
       return (
         <TouchableOpacity
-          style={[mainStyles?.gridItem, cardStyles.homeCard]}
+          style={[
+            mainStyles?.gridItem,
+            cardStyles.homeCard,
+            cardStyles.shadows,
+          ]}
           onPress={() => {
             this.props.navigation.navigate("House");
           }}
@@ -26,8 +30,10 @@ export class HouseOverview extends Component {
               style={cardStyles.image}
               source={{ uri: itemData.item.product_img }}
             />
-            <Text style={cardStyles.title}>{itemData.item.title}</Text>
-            <Text style={cardStyles.price}>{itemData.item.price}</Text>
+            <View style={cardStyles.actions}>
+              <Text style={cardStyles.title}>{itemData.item.title}</Text>
+              <Text style={cardStyles.price}>{itemData.item.price}</Text>
+            </View>
           </View>
         </TouchableOpacity>
       );
