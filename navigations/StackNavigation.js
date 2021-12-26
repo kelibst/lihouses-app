@@ -20,9 +20,14 @@ const StackNavigation = () => {
       <Stack.Screen
         name="HouseDetails"
         component={HouseDetails}
-        options={{
+        options={({ route }) => ({
           headerTintColor: Color.primary,
-        }}
+          title: route?.params?.title,
+          headerTitle:
+            route?.params?.title.length >= 25
+              ? route?.params?.title.slice(0, 24) + "..."
+              : route?.params?.title,
+        })}
       />
     </Stack.Navigator>
   );
