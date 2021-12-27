@@ -62,7 +62,8 @@ const cardStyles = StyleSheet.create({
     position: "relative",
   },
   detTitle: {
-    fontSize: 18,
+    fontSize: 25,
+    backgroundColor: "white",
   },
   iconCont: {
     position: "absolute",
@@ -76,6 +77,9 @@ const cardStyles = StyleSheet.create({
   btn: {
     marginEnd: 10,
     marginLeft: 10,
+  },
+  desCont: {
+    backgroundColor: "white",
   },
 });
 

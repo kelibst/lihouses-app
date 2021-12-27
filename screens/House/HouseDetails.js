@@ -53,7 +53,7 @@ export class HouseDetails extends Component {
 
             <Button title="Add to Cart" onPress={() => {}} />
 
-            <View style={[utilities.paddingSm]}>
+            <View style={[utilities.paddingSm, cardStyles.desCont]}>
               <Text style={[utilities.fontSansBold, utilities.fontSizeSm3]}>
                 GHc {price.toFixed(2)}
               </Text>
