@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HouseOverView from "../screens/House/HouseOverView";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import HouseDetails from "../screens/House/HouseDetails";
 import Color from "../constants/Color";
 import FavoriteList from "../screens/House/FavoriteList";
 import StackNavigation from "./StackNavigation";

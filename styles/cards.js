@@ -48,6 +48,35 @@ const cardStyles = StyleSheet.create({
     color: "black",
     marginTop: 10,
   },
+  cardImg: {
+    width: "100%",
+    height: "100%",
+  },
+  cardContainer: {
+    width: "100%",
+    marginTop: 5,
+    marginBottom: 5,
+  },
+  detImgCont: {
+    height: 280,
+    position: "relative",
+  },
+  detTitle: {
+    fontSize: 18,
+  },
+  iconCont: {
+    position: "absolute",
+    bottom: 0,
+    flexDirection: "row",
+    backgroundColor: "#0202027a",
+    right: 5,
+    paddingLeft: 20,
+    paddingRight: 20,
+  },
+  btn: {
+    marginEnd: 10,
+    marginLeft: 10,
+  },
 });
 
 export default cardStyles;
