@@ -7,29 +7,32 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-    switch(action.type) {
-        case ADD_TO_CART:
-            const addedProduct = action.product;
-            const prodPrice = addedProduct.price,
-            const prodTitle = addedProduct.title
+  switch (action.type) {
+    case ADD_TO_CART:
+      console.log("item added to cart");
+      const addedProduct = action.product;
 
-            let currentCardItem;
-            if (state?.items[addedProduct.id]) {
-                 currentCardItem = new CartItem(
-                    state.items[addedProduct.id].quantity + 1,
-                    prodPrice,
-                    prodTitle,
-                    state.items[addedProduct.id].sum + prodPrice
-                );
-            } else {
-                currentCardItem = new CartItem(1, prodPrice, prodTitle, prodPrice)
-              
-            }  
-            return {
-                    ...state,
-                    items: {...state.items, [addedProduct.id]: currentCardItem},
-                    totolAmount: state.totolAmount+ prodPrice
-                }
-    }
+      if (state?.items[addedProduct.id]) {
+        currentCardItem = new CartItem(
+          state.items[addedProduct.id].quantity + 1,
+          addedProduct?.price,
+          addedProduct?.price,
+          addedProduct?.title,
+          state.items[addedProduct.id].sum + addedProduct?.price
+        );
+      } else {
+        currentCardItem = new CartItem(
+          1,
+          addedProduct?.price,
+          addedProduct?.title,
+          addedProduct?.price
+        );
+      }
+      return {
+        ...state,
+        items: { ...state.items, [addedProduct.id]: currentCardItem },
+        totolAmount: state.totolAmount + addedProduct?.price,
+      };
+  }
   return state;
 };
