@@ -7,8 +7,6 @@ import React from "react";
 import HomeNavigation from "./navigations/HomeNavigation";
 
 import houseReducer from "./store/reducers/houses";
-import StackNavigation from "./navigations/StackNavigation";
-import { HouseOverview } from "./screens/House/HouseOverView";
 import cartReducer from "./store/reducers/cart";
 
 const rootReducer = combineReducers({

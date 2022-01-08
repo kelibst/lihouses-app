@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   View,
   Platform,
+  ToastAndroid,
   TouchableNativeFeedback,
 } from "react-native";
 import { connect } from "react-redux";
@@ -57,6 +58,10 @@ export class HouseOverview extends Component {
                   <TouchableOpacity
                     onPress={() => {
                       addToCart(itemData.item);
+                      ToastAndroid.show(
+                        "Item successfully added to cart!",
+                        ToastAndroid.SHORT
+                      );
                     }}
                   >
                     <Text style={[cardStyles.btn, cardStyles?.btnCart]}>
