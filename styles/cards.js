@@ -34,7 +34,7 @@ const cardStyles = StyleSheet.create({
     overflow: "hidden",
   },
   title: {
-    fontSize: 14,
+    fontSize: 18,
     fontFamily: "sans-serif",
     color: "grey",
     fontWeight: "bold",

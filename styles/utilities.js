@@ -20,5 +20,15 @@ const utilities = StyleSheet.create({
   brTopLtRdsm: {
     borderTopLeftRadius: 10,
   },
+  paddingTopSm: {
+    paddingTop: 10,
+  },
+  width100: {
+    width: "100%",
+  },
+  flexRow: {
+    display: "flex",
+    flexDirection: "row",
+  },
 });
 export default utilities;

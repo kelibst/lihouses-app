@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Text, View, SafeAreaView, FlatList } from "react-native";
 import { connect } from "react-redux";
-import renderCart from "./renderCart";
+import RenderCart from "./RenderCart";
 
 class CartScreen extends Component {
   render() {
@@ -29,8 +29,19 @@ class CartScreen extends Component {
       <FlatList
         data={currentItems}
         numColumns={1}
-        renderItem={renderCart}
-        keyExtractor={(item) => item.id}
+        renderItem={(itemData) => (
+          <RenderCart
+            cartItemDet={{
+              quantity: itemData?.item?.quantity,
+              productPrice: itemData?.item?.productPrice,
+              productTitle: itemData?.item?.productTitle,
+              product_img: itemData?.item?.prodImg,
+              sum: itemData?.item?.sum,
+            }}
+            onRemove={() => {}}
+          />
+        )}
+        keyExtractor={(item) => item.productId}
       />
     );
   }
