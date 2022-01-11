@@ -1,10 +1,18 @@
 import React, { Component } from "react";
-import { Button, Image, SafeAreaView, Text, View } from "react-native";
+import {
+  Button,
+  Image,
+  SafeAreaView,
+  Text,
+  ToastAndroid,
+  View,
+} from "react-native";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { connect } from "react-redux";
 import cardStyles from "../../styles/cards";
 import utilities from "../../styles/utilities";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { addToCart } from "../../store/actions/cart";
 
 export class HouseDetails extends Component {
   render() {
@@ -13,6 +21,7 @@ export class HouseDetails extends Component {
       (prod) => prod.id === product_id
     );
     const { price, product_img, title, description } = curProd;
+    const { addToCart } = this?.props;
     return (
       <SafeAreaView style={cardStyles?.cardContainer}>
         <ScrollView>
@@ -26,7 +35,15 @@ export class HouseDetails extends Component {
                   cardStyles.iconCont,
                 ]}
               >
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    addToCart(curProd);
+                    ToastAndroid.show(
+                      "This item was successfully added to cart."
+                    ),
+                      ToastAndroid.SHORT;
+                  }}
+                >
                   <Text style={[cardStyles.btn, cardStyles?.btnCart]}>
                     <Ionicons name="cart-outline" size={40} color="tomato" />
                   </Text>
@@ -74,4 +91,9 @@ HouseDetails.navigationOptions = () => {
 const mapStateToProps = (state) => ({
   availableHouses: state?.Houses?.availableHouses,
 });
-export default connect(mapStateToProps, {})(HouseDetails);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (product) => dispatch(addToCart(product)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(HouseDetails);
