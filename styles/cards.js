@@ -78,6 +78,9 @@ const cardStyles = StyleSheet.create({
     marginEnd: 10,
     marginLeft: 10,
   },
+  btnCart: {
+    marginLeft: 0,
+  },
   desCont: {
     backgroundColor: "white",
   },

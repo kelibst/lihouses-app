@@ -39,9 +39,9 @@ export class HouseDetails extends Component {
                   onPress={() => {
                     addToCart(curProd);
                     ToastAndroid.show(
-                      "This item was successfully added to cart."
-                    ),
-                      ToastAndroid.SHORT;
+                      "This item was successfully added to cart.",
+                      ToastAndroid.SHORT
+                    );
                   }}
                 >
                   <Text style={[cardStyles.btn, cardStyles?.btnCart]}>
@@ -49,7 +49,7 @@ export class HouseDetails extends Component {
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity>
-                  <Text style={[cardStyles.btn, cardStyles?.btnCart]}>
+                  <Text style={[cardStyles.btn]}>
                     <Ionicons name="heart-outline" size={40} color="tomato" />
                   </Text>
                 </TouchableOpacity>
