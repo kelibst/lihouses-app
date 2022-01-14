@@ -12,10 +12,11 @@ import {
 } from "react-native";
 import cardStyles from "../../styles/cards";
 import cartStyles from "../../styles/cart";
-import mainStyles from "../../styles/main";
 import utilities from "../../styles/utilities";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Color from "../../constants/Color";
+import { connect } from "react-redux";
+import { rmFrmCart } from "../../store/actions/cart";
 
 const RenderCart = (props) => {
   let Tocmp = TouchableOpacity;
@@ -23,7 +24,8 @@ const RenderCart = (props) => {
     Tocmp = TouchableNativeFeedback;
   }
   const item = props?.cartItemDet;
-  console.log(item);
+  // console.log(item);
+  const rmFrmCart = props.rmFrmCart;
   return (
     <View>
       <Tocmp
@@ -53,6 +55,7 @@ const RenderCart = (props) => {
             <Text style={cartStyles?.cartPrice}>
               {item?.productPrice.toFixed(2)}
             </Text>
+            <Text style={cartStyles?.cartPrice}>{item?.quantity}</Text>
 
             <View style={[cartStyles?.cartActions, utilities?.flexRow]}>
               <TouchableOpacity>
@@ -63,7 +66,15 @@ const RenderCart = (props) => {
                 />
               </TouchableOpacity>
 
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  rmFrmCart(item?.key);
+                  ToastAndroid.show(
+                    "Item successfully added to cart!",
+                    ToastAndroid.SHORT
+                  );
+                }}
+              >
                 <View style={cartStyles?.delete}>
                   <Ionicons name="trash" size={30} color={Color?.primary} />
                   <Text style={cartStyles?.deleteText}>REMOVE</Text>
@@ -76,5 +87,14 @@ const RenderCart = (props) => {
     </View>
   );
 };
+const mapStateToProps = (state) => ({
+  availableHouses: state?.Houses?.availableHouses,
+});
 
-export default RenderCart;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    rmFrmCart: (pid) => dispatch(rmFrmCart(pid)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RenderCart);
