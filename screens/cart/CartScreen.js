@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Text, View, SafeAreaView, FlatList } from "react-native";
 import { connect } from "react-redux";
+import { rmFrmCart } from "../../store/actions/cart";
 import RenderCart from "./RenderCart";
 
 class CartScreen extends Component {
@@ -24,6 +25,7 @@ class CartScreen extends Component {
       return transFormedItems;
     };
     const currentItems = cartItems();
+    const rmFrmCart = this?.props?.rmFrmCart;
     // console.log(currentItems);
     return (
       <FlatList
@@ -38,7 +40,9 @@ class CartScreen extends Component {
               product_img: itemData?.item?.prodImg,
               sum: itemData?.item?.sum,
             }}
-            onRemove={() => {}}
+            onRemove={() => {
+              rmFrmCart(itemData?.item?.productId);
+            }}
           />
         )}
         keyExtractor={(item) => item.productId}
@@ -52,4 +56,10 @@ const mapStateToProps = (state) => ({
   cartItems: state?.Cart?.items,
 });
 
-export default connect(mapStateToProps, {})(CartScreen);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    rmFrmCart: (pid) => dispatch(rmFrmCart(pid)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartScreen);

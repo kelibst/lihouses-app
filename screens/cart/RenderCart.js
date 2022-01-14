@@ -25,7 +25,7 @@ const RenderCart = (props) => {
   }
   const item = props?.cartItemDet;
   // console.log(item);
-  const rmFrmCart = props.rmFrmCart;
+  const onRemove = props.onRemove;
   return (
     <View>
       <Tocmp
@@ -68,7 +68,7 @@ const RenderCart = (props) => {
 
               <TouchableOpacity
                 onPress={() => {
-                  rmFrmCart(item?.key);
+                  onRemove();
                   ToastAndroid.show(
                     "Item successfully added to cart!",
                     ToastAndroid.SHORT
@@ -91,10 +91,10 @@ const mapStateToProps = (state) => ({
   availableHouses: state?.Houses?.availableHouses,
 });
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    rmFrmCart: (pid) => dispatch(rmFrmCart(pid)),
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     rmFrmCart: (pid) => dispatch(rmFrmCart(pid)),
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(RenderCart);
+export default connect(mapStateToProps, {})(RenderCart);
