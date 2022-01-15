@@ -37,7 +37,6 @@ export default (state = initialState, action) => {
         totalAmount: state.totalAmount + addedProduct?.price,
       };
     case RM_FR_CART:
-      console.log("got to rm cart");
       let updatedCartItems;
       const selectedItem = state.items[action.pid];
       const curQuty = selectedItem?.quantity;
@@ -45,9 +44,9 @@ export default (state = initialState, action) => {
         const updatedCartItem = new CartItem(
           selectedItem?.quantity - 1,
           selectedItem?.productPrice,
-          selectedItem?.productTitle,
           selectedItem?.proDes,
-          selectedItem?.prodImg,
+          selectedItem?.product_img,
+          selectedItem?.productTitle,
           selectedItem?.sum - selectedItem?.productPrice
         );
         updatedCartItems = { ...state.items, [action.pid]: updatedCartItem };
