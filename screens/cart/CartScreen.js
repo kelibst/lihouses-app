@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { Text, View, SafeAreaView, FlatList } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import { connect } from "react-redux";
 import { rmFrmCart } from "../../store/actions/cart";
+import cartStyles from "../../styles/cart";
+import utilities from "../../styles/utilities";
 import RenderCart from "./RenderCart";
 
 class CartScreen extends Component {
@@ -28,25 +31,34 @@ class CartScreen extends Component {
     const rmFrmCart = this?.props?.rmFrmCart;
     // console.log(currentItems);
     return (
-      <FlatList
-        data={currentItems}
-        numColumns={1}
-        renderItem={(itemData) => (
-          <RenderCart
-            cartItemDet={{
-              quantity: itemData?.item?.quantity,
-              productPrice: itemData?.item?.productPrice,
-              productTitle: itemData?.item?.productTitle,
-              product_img: itemData?.item?.prodImg,
-              sum: itemData?.item?.sum,
-            }}
-            onRemove={() => {
-              rmFrmCart(itemData?.item?.productId);
-            }}
-          />
-        )}
-        keyExtractor={(item) => item.productId}
-      />
+      <View>
+        <FlatList
+          data={currentItems}
+          numColumns={1}
+          renderItem={(itemData) => (
+            <RenderCart
+              cartItemDet={{
+                quantity: itemData?.item?.quantity,
+                productPrice: itemData?.item?.productPrice,
+                productTitle: itemData?.item?.productTitle,
+                product_img: itemData?.item?.prodImg,
+                sum: itemData?.item?.sum,
+              }}
+              onRemove={() => {
+                rmFrmCart(itemData?.item?.productId);
+              }}
+            />
+          )}
+          keyExtractor={(item) => item.productId}
+        />
+        <TouchableOpacity style={cartStyles.cartBtn}>
+          <View>
+            <Text style={[utilities?.fontSansBold, cartStyles.cartBtnTxt]}>
+              Order
+            </Text>
+          </View>
+        </TouchableOpacity>
+      </View>
     );
   }
 }

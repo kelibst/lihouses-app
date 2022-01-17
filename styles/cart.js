@@ -52,6 +52,19 @@ const cartStyles = StyleSheet.create({
   deleteText: {
     color: Color?.primary,
   },
+  cartBtn: {
+    flex: 1,
+    marginTop: 20,
+    paddingTop: 10,
+    paddingBottom: 10,
+    marginBottom: 10,
+    height: 60,
+    backgroundColor: Color.primary,
+  },
+  cartBtnTxt: {
+    color: "white",
+    fontSize: 25,
+  },
 });
 
 export default cartStyles;
