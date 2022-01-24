@@ -38,7 +38,7 @@ class CartScreen extends Component {
     };
     const currentItems = cartItems();
     const rmFrmCart = this?.props?.rmFrmCart;
-    console.log(window);
+    // console.log(window);
     return (
       <View style={cartStyles.cartsContainer}>
         <FlatList
@@ -63,10 +63,6 @@ class CartScreen extends Component {
 
         <TouchableOpacity
           style={{
-            position: "absolute",
-            height: 40,
-            left: 0,
-            top: window.height - 90,
             paddingTop: 10,
             paddingBottom: 10,
             marginBottom: 10,

@@ -19,7 +19,7 @@ const HomeNavigation = () => {
               iconName = focused ? "ios-home" : "ios-home";
               break;
             case "favorites":
-              iconName = focused ? "bookmarks" : "bookmarks-outline";
+              iconName = focused ? "heart" : "heart-outline";
               break;
             case "cart":
               iconName = focused ? "cart" : "cart-outline";

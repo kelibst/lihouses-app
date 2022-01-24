@@ -4,6 +4,7 @@ import Color from "../constants/Color";
 const cartStyles = StyleSheet.create({
   cartsContainer: {
     position: "relative",
+    marginBottom: 50,
   },
   cartItemCont: {
     backgroundColor: "white",
@@ -59,6 +60,7 @@ const cartStyles = StyleSheet.create({
     color: "white",
     fontSize: 22,
     paddingLeft: 20,
+    textAlign: "center",
   },
 });
 
