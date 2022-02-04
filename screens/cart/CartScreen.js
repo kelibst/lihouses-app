@@ -1,23 +1,14 @@
 import React, { Component } from "react";
-import {
-  Text,
-  View,
-  SafeAreaView,
-  FlatList,
-  StyleSheet,
-  Dimensions,
-} from "react-native";
+import { Text, View, FlatList, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { connect } from "react-redux";
 import Color from "../../constants/Color";
 import { rmFrmCart } from "../../store/actions/cart";
 import cartStyles from "../../styles/cart";
-import utilities from "../../styles/utilities";
 import RenderCart from "./RenderCart";
 
 class CartScreen extends Component {
   render() {
-    const window = Dimensions.get("window");
     const cartTotal = this?.props?.cartTotal;
     const carts = this.props?.cartItems;
     const cartItems = () => {
@@ -38,7 +29,6 @@ class CartScreen extends Component {
     };
     const currentItems = cartItems();
     const rmFrmCart = this?.props?.rmFrmCart;
-    // console.log(window);
     return (
       <View style={cartStyles.cartsContainer}>
         <FlatList
