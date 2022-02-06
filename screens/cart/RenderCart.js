@@ -24,7 +24,9 @@ const RenderCart = (props) => {
     Tocmp = TouchableNativeFeedback;
   }
   const item = props?.cartItemDet;
-  // console.log(item);
+
+  const { favorites } = props;
+
   const onRemove = props.onRemove;
   return (
     <View>
@@ -60,7 +62,7 @@ const RenderCart = (props) => {
             <View style={[cartStyles?.cartActions, utilities?.flexRow]}>
               <TouchableOpacity>
                 <Ionicons
-                  name="heart-outline"
+                  name={item?.key in favorites ? "heart" : "heart-outline"}
                   size={30}
                   color={Color?.primary}
                 />
@@ -89,6 +91,7 @@ const RenderCart = (props) => {
 };
 const mapStateToProps = (state) => ({
   availableHouses: state?.Houses?.availableHouses,
+  favorites: state?.Fav?.favorites,
 });
 
 // const mapDispatchToProps = (dispatch) => {

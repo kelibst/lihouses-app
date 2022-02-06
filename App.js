@@ -8,10 +8,12 @@ import HomeNavigation from "./navigations/HomeNavigation";
 
 import houseReducer from "./store/reducers/houses";
 import cartReducer from "./store/reducers/cart";
+import favReducer from "./store/reducers/favorites";
 
 const rootReducer = combineReducers({
   Houses: houseReducer,
   Cart: cartReducer,
+  Fav: favReducer,
 });
 
 const store = createStore(rootReducer);

@@ -14,15 +14,16 @@ class CartScreen extends Component {
     const cartItems = () => {
       const transFormedItems = [];
       for (const key in carts) {
+        const cartItem = carts[key];
         transFormedItems.push({
           productId: key,
-          quantity: carts[key].quantity,
-          productPrice: carts[key].productPrice,
-          productTitle: carts[key].productTitle,
-          proDes: carts[key].proDes,
-          prodImg: carts[key].product_img,
+          quantity: cartItem.quantity,
+          productPrice: cartItem.productPrice,
+          productTitle: cartItem.productTitle,
+          proDes: cartItem.proDes,
+          prodImg: cartItem.product_img,
 
-          sum: carts[key].sum,
+          sum: cartItem.sum,
         });
       }
       return transFormedItems;
@@ -42,6 +43,7 @@ class CartScreen extends Component {
                 productTitle: itemData?.item?.productTitle,
                 product_img: itemData?.item?.prodImg,
                 sum: itemData?.item?.sum,
+                key: itemData?.item?.productId,
               }}
               onRemove={() => {
                 rmFrmCart(itemData?.item?.productId);

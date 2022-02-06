@@ -16,6 +16,7 @@ import mainStyles from "../../styles/main";
 import utilities from "../../styles/utilities";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { addToCart } from "../../store/actions/cart";
+import { addToFav } from "../../store/actions/favorites";
 
 export class HouseOverview extends Component {
   render() {
@@ -24,7 +25,8 @@ export class HouseOverview extends Component {
       if (Platform.OS === "android" && Platform.Version >= 21) {
         Tocmp = TouchableNativeFeedback;
       }
-      const { addToCart } = this?.props;
+      const { addToCart, addToFav, favorites } = this?.props;
+
       return (
         <View
           style={[
@@ -68,9 +70,25 @@ export class HouseOverview extends Component {
                       <Ionicons name="cart-outline" size={30} color="tomato" />
                     </Text>
                   </TouchableOpacity>
-                  <TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() => {
+                      addToFav(itemData.item);
+                      ToastAndroid.show(
+                        "Item successfully added to favorites!",
+                        ToastAndroid.SHORT
+                      );
+                    }}
+                  >
                     <Text style={[cardStyles.btn, cardStyles?.btnCart]}>
-                      <Ionicons name="heart-outline" size={30} color="tomato" />
+                      <Ionicons
+                        name={
+                          itemData?.item?.id in favorites
+                            ? "heart"
+                            : "heart-outline"
+                        }
+                        size={30}
+                        color="tomato"
+                      />
                     </Text>
                   </TouchableOpacity>
                 </View>
@@ -102,11 +120,13 @@ export class HouseOverview extends Component {
 
 const mapStateToProps = (state) => ({
   availableHouses: state?.Houses?.availableHouses,
+  favorites: state?.Fav?.favorites,
 });
 
 const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (product) => dispatch(addToCart(product)),
+    addToFav: (product) => dispatch(addToFav(product)),
   };
 };
 
