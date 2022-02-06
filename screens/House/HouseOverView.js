@@ -16,7 +16,7 @@ import mainStyles from "../../styles/main";
 import utilities from "../../styles/utilities";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { addToCart } from "../../store/actions/cart";
-import { addToFav } from "../../store/actions/favorites";
+import { addToFav, rmFrmFav } from "../../store/actions/favorites";
 
 export class HouseOverview extends Component {
   render() {
@@ -25,7 +25,7 @@ export class HouseOverview extends Component {
       if (Platform.OS === "android" && Platform.Version >= 21) {
         Tocmp = TouchableNativeFeedback;
       }
-      const { addToCart, addToFav, favorites } = this?.props;
+      const { addToCart, addToFav, favorites, rmFrmFav } = this?.props;
 
       return (
         <View
@@ -72,9 +72,13 @@ export class HouseOverview extends Component {
                   </TouchableOpacity>
                   <TouchableOpacity
                     onPress={() => {
-                      addToFav(itemData.item);
+                      itemData?.item?.id in favorites
+                        ? rmFrmFav(itemData?.item?.id)
+                        : addToFav(itemData.item);
                       ToastAndroid.show(
-                        "Item successfully added to favorites!",
+                        itemData?.item?.id in favorites
+                          ? "Item successfully removed from Favorites"
+                          : "Item successfully added to favorites!",
                         ToastAndroid.SHORT
                       );
                     }}
@@ -127,6 +131,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (product) => dispatch(addToCart(product)),
     addToFav: (product) => dispatch(addToFav(product)),
+    rmFrmFav: (pid) => dispatch(rmFrmFav(pid)),
   };
 };
 
