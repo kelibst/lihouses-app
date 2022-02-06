@@ -72,7 +72,7 @@ const RenderCart = (props) => {
                 onPress={() => {
                   onRemove();
                   ToastAndroid.show(
-                    "Item successfully added to cart!",
+                    "Item successfully removed!",
                     ToastAndroid.SHORT
                   );
                 }}

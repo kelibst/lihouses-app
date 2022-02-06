@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { FlatList, Text, View } from "react-native";
 import { connect } from "react-redux";
 import mainStyles from "../../styles/main";
-import { rmFrmFav } from "../../store/actions/favorites";
+import { rmFrmFav, RM_FR_FAV } from "../../store/actions/favorites";
 import cartStyles from "../../styles/cart";
 import RenderCart from "../cart/RenderCart";
 
@@ -25,7 +25,7 @@ class FavoriteList extends Component {
       return transFormedItems;
     };
     let currentFavs = Object.keys(favorites).length ? favItems() : [];
-
+    const { rmFrmFav } = this?.props;
     return (
       <View style={cartStyles.cartsContainer}>
         <FlatList
@@ -39,6 +39,9 @@ class FavoriteList extends Component {
                 productTitle: itemData?.item?.productTitle,
                 product_img: itemData?.item?.prodImg,
                 key: itemData?.item?.productId,
+              }}
+              onRemove={() => {
+                rmFrmFav(itemData?.item?.productId);
               }}
             />
           )}
