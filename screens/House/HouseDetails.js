@@ -13,6 +13,7 @@ import cardStyles from "../../styles/cards";
 import utilities from "../../styles/utilities";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { addToCart } from "../../store/actions/cart";
+import { addToFav, rmFrmFav } from "../../store/actions/favorites";
 
 export class HouseDetails extends Component {
   render() {
@@ -21,7 +22,7 @@ export class HouseDetails extends Component {
       (prod) => prod.id === product_id
     );
     const { price, product_img, title, description } = curProd;
-    const { addToCart } = this?.props;
+    const { addToCart, addToFav, rmFrmFav, favorites } = this?.props;
     return (
       <SafeAreaView style={cardStyles?.cardContainer}>
         <ScrollView>
@@ -48,9 +49,25 @@ export class HouseDetails extends Component {
                     <Ionicons name="cart-outline" size={40} color="tomato" />
                   </Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    product_id in favorites
+                      ? rmFrmFav(product_id)
+                      : addToFav(curProd);
+                    ToastAndroid.show(
+                      product_id in favorites
+                        ? "Item successfully removed from Favorites"
+                        : "Item successfully added to favorites!",
+                      ToastAndroid.SHORT
+                    );
+                  }}
+                >
                   <Text style={[cardStyles.btn]}>
-                    <Ionicons name="heart-outline" size={40} color="tomato" />
+                    <Ionicons
+                      name={product_id in favorites ? "heart" : "heart-outline"}
+                      size={40}
+                      color="tomato"
+                    />
                   </Text>
                 </TouchableOpacity>
               </View>
@@ -90,10 +107,13 @@ HouseDetails.navigationOptions = () => {
 };
 const mapStateToProps = (state) => ({
   availableHouses: state?.Houses?.availableHouses,
+  favorites: state?.Fav?.favorites,
 });
 const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (product) => dispatch(addToCart(product)),
+    addToFav: (product) => dispatch(addToFav(product)),
+    rmFrmFav: (pid) => dispatch(rmFrmFav(pid)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(HouseDetails);
