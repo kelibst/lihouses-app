@@ -3,9 +3,11 @@ import { FlatList } from "react-native";
 import { addToCart } from "../../store/actions/cart";
 import { addToFav, rmFrmFav } from "../../store/actions/favorites";
 import RenderHouse from "./RenderHouse";
+import { connect } from "react-redux";
 
 export class HouseOverview extends Component {
   render() {
+    const { addToCart, addToFav, rmFrmFav } = this.props;
     return (
       <FlatList
         data={this?.props?.availableHouses}
@@ -17,6 +19,15 @@ export class HouseOverview extends Component {
               title: itemData?.item?.title,
               image: itemData.item.product_img,
               price: itemData.item.price,
+            }}
+            onAddToCart={() => {
+              addToCart(itemData?.item);
+            }}
+            onRmFrmFav={() => {
+              rmFrmFav(itemData?.item?.id);
+            }}
+            onAddToFav={() => {
+              addToFav(itemData?.item);
             }}
           />
         )}

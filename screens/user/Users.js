@@ -4,39 +4,44 @@ import { FlatList } from "react-native-gesture-handler";
 import { connect } from "react-redux";
 import Data from "../../DataFile";
 import cartStyles from "../../styles/cart";
+import RenderHouse from "../House/RenderHouse";
 
 class Users extends Component {
   render() {
-    const { userHouses } = this.props;
+    const { userHouses, addToCart, addToFav, rmFrmFav } = this.props;
+    console.log(this.props);
     return (
-      <View style={cartStyles.cartsContainer}>
-        {/* <FlatList
-          data={userHouses}
-          numColumns={2}
-          renderItem={(itemData) => (
-            <RenderCart
-              cartItemDet={{
-                quantity: itemData?.item?.quantity,
-                productPrice: itemData?.item?.productPrice,
-                productTitle: itemData?.item?.productTitle,
-                product_img: itemData?.item?.prodImg,
-                key: itemData?.item?.productId,
-              }}
-              onRemove={() => {
-                rmFrmFav(itemData?.item?.productId);
-              }}
-            />
-          )}
-          keyExtractor={(item) => item.productId}
-        /> */}
-        <Text> Hello from users</Text>
-      </View>
+      <FlatList
+        data={userHouses}
+        numColumns={2}
+        renderItem={(itemData) => (
+          <RenderHouse
+            houseItem={{
+              product_id: itemData?.item?.id,
+              title: itemData?.item?.title,
+              image: itemData.item.product_img,
+              price: itemData.item.price,
+            }}
+            onAddToCart={() => {}}
+            onRmFrmFav={() => {}}
+            onAddToFav={() => {}}
+          />
+        )}
+      />
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  userHouses: state?.House?.userHouses,
+  userHouses: state?.Houses?.userHouses,
 });
 
-export default connect(mapStateToProps, {})(Users);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (product) => dispatch(addToCart(product)),
+    addToFav: (product) => dispatch(addToFav(product)),
+    rmFrmFav: (pid) => dispatch(rmFrmFav(pid)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Users);
