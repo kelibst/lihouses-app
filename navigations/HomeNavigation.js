@@ -5,6 +5,8 @@ import Color from "../constants/Color";
 import FavoriteList from "../screens/House/FavoriteList";
 import StackNavigation from "./StackNavigation";
 import CartScreen from "../screens/cart/CartScreen";
+import Profile from "../screens/user/Profile";
+import Users from "../screens/user/Users";
 
 const Tab = createBottomTabNavigator();
 const HomeNavigation = () => {
@@ -23,6 +25,9 @@ const HomeNavigation = () => {
               break;
             case "cart":
               iconName = focused ? "cart" : "cart-outline";
+              break;
+            case "user":
+              iconName = focused ? "person-circle" : "person-circle-outline";
               break;
             default:
               iconName = focused ? "ios-home" : "ios-home";
@@ -52,6 +57,15 @@ const HomeNavigation = () => {
         component={CartScreen}
         options={{
           title: "Cart",
+          headerTintColor: Color.primary,
+        }}
+      />
+
+      <Tab.Screen
+        name="user"
+        component={Users}
+        options={{
+          title: "users name",
           headerTintColor: Color.primary,
         }}
       />

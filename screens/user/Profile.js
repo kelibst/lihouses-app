@@ -1,7 +1,7 @@
-import React, { Component } from "react";
 import { Text, View } from "react-native";
+import React, { Component } from "react";
 
-export class Users extends Component {
+class Profile extends Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -11,4 +11,4 @@ export class Users extends Component {
   }
 }
 
-export default Users;
+export default Profile;
