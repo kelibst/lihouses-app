@@ -65,7 +65,7 @@ const HomeNavigation = () => {
         name="user"
         component={Users}
         options={{
-          title: "users name",
+          title: "Account",
           headerTintColor: Color.primary,
         }}
       />

@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import Color from "../constants/Color";
 
 const mainStyles = StyleSheet.create({
   container: {
@@ -9,6 +10,14 @@ const mainStyles = StyleSheet.create({
   },
   gridItem: {
     flex: 1,
+  },
+  userHeader: {
+    minHeight: 80,
+    textAlign: "center",
+    justifyContent: "center",
+    backgroundColor: "white",
+    color: Color?.primary,
+    alignContent: "center",
   },
 });
 export default mainStyles;

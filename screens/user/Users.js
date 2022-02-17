@@ -1,15 +1,22 @@
 import React, { Component } from "react";
-import { Text, View } from "react-native";
+import { Text, View, Button } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { connect } from "react-redux";
 import Data from "../../DataFile";
 import cartStyles from "../../styles/cart";
 import RenderHouse from "../House/RenderHouse";
+import HeaderRight from "./HeaderRight";
 
 class Users extends Component {
+  componentDidMount() {
+    this.props?.navigation?.setOptions({
+      headerTitle: "Keli Booster",
+      header: (props) => <HeaderRight />,
+    });
+  }
   render() {
-    const { userHouses, addToCart, addToFav, rmFrmFav } = this.props;
-    console.log(this.props);
+    const { userHouses } = this.props;
+
     return (
       <FlatList
         data={userHouses}
@@ -25,6 +32,8 @@ class Users extends Component {
             onAddToCart={() => {}}
             onRmFrmFav={() => {}}
             onAddToFav={() => {}}
+            navigator={this.props?.navigation}
+            route={this?.props?.route}
           />
         )}
       />
@@ -36,12 +45,4 @@ const mapStateToProps = (state) => ({
   userHouses: state?.Houses?.userHouses,
 });
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addToCart: (product) => dispatch(addToCart(product)),
-    addToFav: (product) => dispatch(addToFav(product)),
-    rmFrmFav: (pid) => dispatch(rmFrmFav(pid)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Users);
+export default connect(mapStateToProps, {})(Users);

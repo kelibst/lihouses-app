@@ -21,8 +21,8 @@ const renderData = (props) => {
   if (Platform.OS === "android" && Platform.Version >= 21) {
     Tocmp = TouchableNativeFeedback;
   }
+  console.log(props?.route);
   const { onAddToCart, onAddToFav, favorites, onRmFrmFav, houseItem } = props;
-  console.log(props?.navigation);
   return (
     <View
       style={[mainStyles?.gridItem, cardStyles.homeCard, cardStyles.shadows]}
@@ -30,7 +30,7 @@ const renderData = (props) => {
       <Tocmp
         useForeground
         onPress={() => {
-          props.navigation.navigate("HouseDetails", {
+          props?.navigator.navigate("HouseDetails", {
             product_id: houseItem?.product_id,
             title: houseItem?.title,
           });

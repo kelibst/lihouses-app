@@ -29,6 +29,8 @@ export class HouseOverview extends Component {
             onAddToFav={() => {
               addToFav(itemData?.item);
             }}
+            navigator={this.props?.navigation}
+            route={this?.props?.route}
           />
         )}
       />
