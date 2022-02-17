@@ -21,7 +21,7 @@ const renderData = (props) => {
   if (Platform.OS === "android" && Platform.Version >= 21) {
     Tocmp = TouchableNativeFeedback;
   }
-  console.log(props?.route);
+
   const { onAddToCart, onAddToFav, favorites, onRmFrmFav, houseItem } = props;
   return (
     <View

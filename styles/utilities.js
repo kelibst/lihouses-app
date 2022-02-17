@@ -30,5 +30,11 @@ const utilities = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
   },
+  padsmLft: {
+    paddingLeft: 10,
+  },
+  padsmRgt: {
+    paddingRight: 10,
+  },
 });
 export default utilities;

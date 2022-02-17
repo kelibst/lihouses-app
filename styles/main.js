@@ -12,12 +12,20 @@ const mainStyles = StyleSheet.create({
     flex: 1,
   },
   userHeader: {
-    minHeight: 80,
-    textAlign: "center",
-    justifyContent: "center",
     backgroundColor: "white",
+    marginBottom: 5,
+    height: 80,
+    paddingTop: 30,
+    justifyContent: "space-between",
+    flexDirection: "row",
+  },
+  userHeaderTxt: {
+    fontSize: 20,
     color: Color?.primary,
-    alignContent: "center",
+  },
+  userHeaderIco: {},
+  userHeaderIcoCont: {
+    flexDirection: "row",
   },
 });
 export default mainStyles;
