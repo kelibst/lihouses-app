@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { FlatList, Text, View } from "react-native";
 import { connect } from "react-redux";
-import mainStyles from "../../styles/main";
-import { rmFrmFav, RM_FR_FAV } from "../../store/actions/favorites";
+import { rmFrmFav } from "../../store/actions/favorites";
 import cartStyles from "../../styles/cart";
 import RenderCart from "../cart/RenderCart";
 

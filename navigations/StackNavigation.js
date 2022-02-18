@@ -4,6 +4,7 @@ import Color from "../constants/Color";
 import HomeNavigation from "./HomeNavigation";
 import HouseDetails from "../screens/House/HouseDetails";
 import HouseOverView from "../screens/House/HouseOverView";
+import Profile from "../screens/user/Profile";
 const Stack = createNativeStackNavigator();
 
 const StackNavigation = () => {
@@ -27,6 +28,15 @@ const StackNavigation = () => {
             route?.params?.title.length >= 25
               ? route?.params?.title.slice(0, 24) + "..."
               : route?.params?.title,
+        })}
+      />
+
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={() => ({
+          headerTintColor: Color.primary,
+          title: "Profile",
         })}
       />
     </Stack.Navigator>
