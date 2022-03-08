@@ -100,8 +100,7 @@ const cardStyles = StyleSheet.create({
     margin: 20,
     backgroundColor: "white",
     borderRadius: 20,
-    padding: 35,
-    alignItems: "center",
+    padding: 10,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

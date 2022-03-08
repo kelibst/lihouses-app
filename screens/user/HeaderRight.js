@@ -8,7 +8,6 @@ import utilities from "../../styles/utilities";
 
 const HeaderRight = (props) => {
   const { modalsVars } = props;
-  console.log(modalsVars);
   return (
     <View style={mainStyles.userHeader}>
       <TouchableOpacity style={utilities.padsmLft}>

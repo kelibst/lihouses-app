@@ -27,5 +27,12 @@ const mainStyles = StyleSheet.create({
   userHeaderIcoCont: {
     flexDirection: "row",
   },
+  textInp: {
+    borderWidth: 1,
+    borderColor: "black",
+    marginVertical: 10,
+    paddingVertical: 5,
+    borderRadius: 5,
+  },
 });
 export default mainStyles;
