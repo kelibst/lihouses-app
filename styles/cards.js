@@ -95,12 +95,19 @@ const cardStyles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 22,
+    backgroundColor: "blue",
+    height: "100%",
+  },
+  centerModal: {
+    flex: 1,
+    justifyContent: "center",
   },
   modalView: {
     margin: 20,
     backgroundColor: "white",
     borderRadius: 20,
     padding: 10,
+    paddingVertical: 40,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

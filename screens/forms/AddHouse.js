@@ -1,7 +1,7 @@
 import { Modal, Pressable, Text, View } from "react-native";
 import React, { Component } from "react";
 import mainStyles from "../../styles/main";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import cartStyles from "../../styles/cart";
 import cardStyles from "../../styles/cards";
 import AddHseForm from "../../components/AddHseForm";
@@ -14,17 +14,19 @@ class AddHouse extends Component {
         animationType="slide"
         transparent={true}
         visible={modalsVars.modalVisible}
-        style={cardStyles.centeredView}
         onRequestClose={() => {
           console.log("modal cloased");
         }}
       >
-        <Pressable onPress={() => modalsVars.setModalVisible()}>
+        <Pressable
+          onPress={() => modalsVars.setModalVisible()}
+          style={cardStyles.centerModal}
+        >
           <View style={cardStyles.modalView}>
-            <Pressable onPress={() => modalsVars.setModalVisible()}>
-              <Text>Add a new House:</Text>
+            <ScrollView>
+              <Text style={mainStyles.mainHeaderTitle}>Add a new House:</Text>
               <AddHseForm />
-            </Pressable>
+            </ScrollView>
           </View>
         </Pressable>
       </Modal>
