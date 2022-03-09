@@ -7,16 +7,27 @@ import cardStyles from "../../styles/cards";
 import AddHseForm from "../../components/AddHseForm";
 
 class AddHouse extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      formData: {
+        title: "some title",
+        description: "",
+        product_img: "",
+        price: "",
+      },
+    };
+  }
   render() {
     const { modalsVars } = this.props;
+    const setFormData = (fData) => {
+      this.setState({ formData: fData });
+    };
     return (
       <Modal
         animationType="slide"
         transparent={true}
         visible={modalsVars.modalVisible}
-        onRequestClose={() => {
-          console.log("modal cloased");
-        }}
       >
         <Pressable
           onPress={() => modalsVars.setModalVisible()}
@@ -25,7 +36,12 @@ class AddHouse extends Component {
           <View style={cardStyles.modalView}>
             <ScrollView>
               <Text style={mainStyles.mainHeaderTitle}>Add a new House:</Text>
-              <AddHseForm />
+              <AddHseForm
+                frmData={{
+                  formData: this.state.formData,
+                  setFormData: setFormData,
+                }}
+              />
             </ScrollView>
           </View>
         </Pressable>

@@ -36,5 +36,11 @@ const utilities = StyleSheet.create({
   padsmRgt: {
     paddingRight: 10,
   },
+  mtSm: {
+    marginTop: 10,
+  },
+  mt2Sm: {
+    marginTop: 20,
+  },
 });
 export default utilities;
