@@ -33,7 +33,7 @@ class Users extends Component {
 
   render() {
     const { userHouses } = this.props;
-
+    console.log("userhouse", userHouses);
     return (
       <View>
         <FlatList

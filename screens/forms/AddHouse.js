@@ -5,13 +5,15 @@ import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import cartStyles from "../../styles/cart";
 import cardStyles from "../../styles/cards";
 import AddHseForm from "../../components/AddHseForm";
+import { addHouse } from "../../store/actions/houses";
+import { connect } from "react-redux";
 
 class AddHouse extends Component {
   constructor(props) {
     super(props);
     this.state = {
       formData: {
-        title: "some title",
+        title: "",
         description: "",
         product_img: "",
         price: "",
@@ -19,7 +21,10 @@ class AddHouse extends Component {
     };
   }
   render() {
-    const { modalsVars } = this.props;
+    const { modalsVars, addHse } = this.props;
+    const addProToHouse = (formData) => {
+      addHse(formData);
+    };
     const setFormData = (fData) => {
       this.setState({ formData: fData });
     };
@@ -40,6 +45,7 @@ class AddHouse extends Component {
                 frmData={{
                   formData: this.state.formData,
                   setFormData: setFormData,
+                  addProToHouse: addProToHouse,
                 }}
               />
             </ScrollView>
@@ -49,5 +55,14 @@ class AddHouse extends Component {
     );
   }
 }
+const mapStateToProps = (state) => ({
+  availableHouses: state?.Houses?.availableHouses,
+  userHouses: state?.Houses?.userHouses,
+});
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addHse: (product) => dispatch(addHouse(product)),
+  };
+};
 
-export default AddHouse;
+export default connect(mapStateToProps, mapDispatchToProps)(AddHouse);

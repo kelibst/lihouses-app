@@ -45,6 +45,7 @@ const AddHseForm = (props) => {
                 style={mainStyles.textInp}
                 placeholder="Does it have porch, kitchen, any other information."
                 multiline={true}
+                value={frmData?.formData.description}
                 onChangeText={(text) =>
                   frmData.setFormData({
                     ...frmData?.formData,
@@ -61,6 +62,7 @@ const AddHseForm = (props) => {
               <TextInput
                 style={mainStyles.textInp}
                 placeholder="Link to pictures of the room"
+                value={frmData?.formData.product_img}
                 onChangeText={(text) =>
                   frmData.setFormData({
                     ...frmData?.formData,
@@ -77,17 +79,24 @@ const AddHseForm = (props) => {
               <TextInput
                 style={mainStyles.textInp}
                 keyboardType="numeric"
+                value={frmData?.formData.price}
                 onChangeText={(number) =>
                   frmData.setFormData({
                     ...frmData?.formData,
-                    Price: number,
+                    price: number,
                   })
                 }
               />
             </View>
           </View>
           <View>
-            <Button color={Color.primary} title="Add House" />
+            <Button
+              color={Color.primary}
+              title="Add House"
+              onPress={() => {
+                frmData.addProToHouse(frmData.formData);
+              }}
+            />
           </View>
         </KeyboardAvoidingView>
       </View>
